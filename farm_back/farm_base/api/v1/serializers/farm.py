@@ -1,3 +1,4 @@
+from unittest.util import _MAX_LENGTH
 from django.contrib.gis.geos import GEOSGeometry
 from osgeo import ogr
 from rest_framework import serializers
@@ -20,7 +21,7 @@ class FarmListSerializer(serializers.ModelSerializer):
         model = Farm
         fields = ['name', 'owner', 'centroid', 'area', 
         'municipality', 'state' ]
-        read_only_fields = ['id', 'centroid', 'area', 'state']
+        # read_only_fields = ['id', 'centroid', 'area', 'state']
 
 
 class FarmCreateSerializer(serializers.ModelSerializer):
@@ -48,7 +49,7 @@ class FarmCreateSerializer(serializers.ModelSerializer):
 class FarmFilterSerializer(serializers.ModelSerializer):
     class Meta:
         model = Farm
-        fields = ['name', 'owner.name', 'owner.document', 
+        fields = ['name', 'owner', 
         'municipality', 'state', 'id']
     
 

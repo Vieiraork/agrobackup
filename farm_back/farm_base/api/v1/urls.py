@@ -12,7 +12,7 @@ urlpatterns = [
          name="farms-list-create"),
      path('farms/<int:pk>', FarmRetrieveUpdateDestroyView.as_view(),
          name="farms-retrieve-update-destroy"),
-    path('farms', FarmSearchView.as_view(),
+    path('farms/search/', FarmSearchView.as_view(),
         name='farms-search-view'),
 
 
